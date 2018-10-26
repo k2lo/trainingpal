@@ -8,7 +8,8 @@
 
 
 trainings = %w(Przysiady Klata Biceps Nogi Cardio)
+Training.create(id: 4001, name: 'TestTraining')
 
 trainings.each do |name|
-  Excercise.create( name: name )
+  Excercise.create( name: name, training_id: 1)
 end

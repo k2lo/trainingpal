@@ -27,11 +27,12 @@
   </div>
 
   <%= form.fields_for :excercises do |excercise| %>
-      <div>
-        <%= excercise.label :name %>
-        <%= excercise.text_field :name %>
-      </div>
-    <% end %>
+      <%= render 'excercise_fields', f: excercise %>
+  <% end %>
+  </div>
+
+  <div class="links">
+    <%= link_to_add_association 'add excercise', form, :excercises %>
   </div>
 
   <div class="actions">
