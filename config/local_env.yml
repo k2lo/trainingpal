@@ -1,0 +1,5 @@
+POSTGRES_USER: karol
+POSTGRES_PASSWORD: klau3
+POSTGRES_HOST: localhost
+POSTGRES_DB: shorturl_dev
+POSTGRES_TEST_DB: shorturl_test
