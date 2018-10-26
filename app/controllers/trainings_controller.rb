@@ -15,6 +15,7 @@ class TrainingsController < ApplicationController
   # GET /trainings/new
   def new
     @training = Training.new
+    3.times { @training.excercises.build}
   end
 
   # GET /trainings/1/edit
@@ -69,6 +70,6 @@ class TrainingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def training_params
-      params.require(:training).permit(:name, :cover, :description)
+      params.require(:training).permit(:name, :cover, :description, excercises_attributes: [:name])
     end
 end

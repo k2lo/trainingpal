@@ -18,12 +18,20 @@
 
   <div class="field">
     <%= form.label :cover %>
-    <%= form.text_field :cover %>
+    <%= form.file_field :cover %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
     <%= form.text_field :description %>
+  </div>
+
+  <%= form.fields_for :excercises do |excercise| %>
+      <div>
+        <%= excercise.label :name %>
+        <%= excercise.text_field :name %>
+      </div>
+    <% end %>
   </div>
 
   <div class="actions">
