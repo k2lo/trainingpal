@@ -7,7 +7,7 @@
 
 <p>
   <strong>Cover:</strong>
-  <%= @training.cover %>
+  <%= image_tag(@training.cover.url, alt: 'Cover') if @training.cover? %>
 </p>
 
 <p>

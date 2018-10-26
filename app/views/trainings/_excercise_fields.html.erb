@@ -1,5 +1,19 @@
-<div class="nested-fields">
-	<%= f.label :name %>
-	<%= f.select :name, Excercise.all.collect { |e| [ e.name, e.id ] }, include_blank: true %>
-	<%= link_to_remove_association "remove excercise", f %>
+<div class="nested-fields form-group">
+	<div class="row">
+		<div class="col-md-4">
+			<%= f.label :name %>
+			<%= f.select :name, Excercise.all.collect { |e| [ e.name, e.id ] }, {}, {class: "form-control"} %>
+		</div>
+		<div class="col-md-2">
+			<%= f.label :reps %>
+			<%= f.select :reps, 1..12, {}, {class: "form-control"} %>
+		</div>
+		<div class="col-md-2">
+			<%= f.label :sets %>
+			<%= f.select :sets, 1..12, {}, {class: "form-control"} %>
+		</div>
+		<div class="col-md-1">
+			<%= link_to_remove_association "remove excercise", f, class: "btn btn-danger", style:"margin-top: 30px;" %>
+		</div>
+	</div>
 </div>

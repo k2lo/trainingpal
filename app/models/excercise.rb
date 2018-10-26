@@ -1,3 +1,3 @@
 class Excercise < ApplicationRecord
-	belongs_to :training
+	belongs_to :training, required: false
 end

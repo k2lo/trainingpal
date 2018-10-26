@@ -15,4 +15,6 @@
 //= require jquery
 //= require cocoon
 //= require turbolinks
+//= require popper
+//= require bootstrap
 //= require_tree .

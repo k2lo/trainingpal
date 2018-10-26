@@ -1,41 +1,31 @@
 <%= form_with(model: training, local: true) do |form| %>
-  <% if training.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(training.errors.count, "error") %> prohibited this training from being saved:</h2>
-
-      <ul>
-      <% training.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
+  
+  <%= errors_for(@training) %>
+  
+  <div class="form-group">
     <%= form.label :cover %>
-    <%= form.file_field :cover %>
+    <%= form.file_field :cover, class: "form-control-file" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_field :description %>
+    <%= form.text_area :description, class: "form-control"  %>
   </div>
 
   <%= form.fields_for :excercises do |excercise| %>
       <%= render 'excercise_fields', f: excercise %>
   <% end %>
-  </div>
 
-  <div class="links">
-    <%= link_to_add_association 'add excercise', form, :excercises %>
+  <div class="form-group">
+    <%= link_to_add_association 'add excercise', form, :excercises, class: "btn btn-primary" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Submit', class: 'btn btn-success' %>
   </div>
 <% end %>

@@ -1,31 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Trainings</h1>
+<!-- Page Heading -->
+      <h1 class="my-4">Trainings
+        <small>Make it work!</small>
+      </h1>
+      
+      <% @trainings.each do |training| %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Cover</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <div class="row">
+          <div class="col-md-7">
+            <%= image_tag(training.cover.url, alt: 'Cover', class: "img-fluid rounded mb-3 mb-md-0") if training.cover? %>
+          </div>
+          <div class="col-md-5">
+            <h3><%= training.name %></h3>
+            <p><%= training.description %></p>
+            <%= link_to 'Show', training, class: "btn btn-primary" %>
+            <%= link_to 'Edit', edit_training_path(training), class: "btn btn-success" %>
+            <%= link_to 'Destroy', training, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+          </div>
+        </div>
 
-  <tbody>
-    <% @trainings.each do |training| %>
-      <tr>
-        <td><%= training.name %></td>
-        <td><%= training.cover %></td>
-        <td><%= training.description %></td>
-        <td><%= link_to 'Show', training %></td>
-        <td><%= link_to 'Edit', edit_training_path(training) %></td>
-        <td><%= link_to 'Destroy', training, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+        <hr>
+      <% end %>
 
 <%= link_to 'New Training', new_training_path %>
