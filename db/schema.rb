@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,28 +12,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_25_204038) do
-
+ActiveRecord::Schema.define(version: 20_181_025_204_038) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "excercises", force: :cascade do |t|
-    t.string "name"
-    t.integer "reps"
-    t.integer "sets"
-    t.bigint "training_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["training_id"], name: "index_excercises_on_training_id"
+  create_table 'excercises', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'reps'
+    t.integer 'sets'
+    t.bigint 'training_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['training_id'], name: 'index_excercises_on_training_id'
   end
 
-  create_table "trainings", force: :cascade do |t|
-    t.string "name"
-    t.string "cover"
-    t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'trainings', force: :cascade do |t|
+    t.string 'name'
+    t.string 'cover'
+    t.text 'description'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  add_foreign_key "excercises", "trainings"
+  add_foreign_key 'excercises', 'trainings'
 end

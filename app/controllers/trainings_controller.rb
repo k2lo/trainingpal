@@ -1,28 +1,18 @@
-class TrainingsController < ApplicationController
-  before_action :set_training, only: [:show, :edit, :update, :destroy]
+# frozen_string_literal: true
 
-  # GET /trainings
-  # GET /trainings.json
+class TrainingsController < ApplicationController
+  before_action :set_training, only: %i[show edit update destroy]
+
   def index
     @trainings = Training.all
   end
 
-  # GET /trainings/1
-  # GET /trainings/1.json
-  def show
-  end
-
-  # GET /trainings/new
   def new
     @training = Training.new
   end
 
-  # GET /trainings/1/edit
-  def edit
-  end
+  def edit; end
 
-  # POST /trainings
-  # POST /trainings.json
   def create
     @training = Training.new(training_params)
 
@@ -37,8 +27,6 @@ class TrainingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /trainings/1
-  # PATCH/PUT /trainings/1.json
   def update
     respond_to do |format|
       if @training.update(training_params)
@@ -51,8 +39,6 @@ class TrainingsController < ApplicationController
     end
   end
 
-  # DELETE /trainings/1
-  # DELETE /trainings/1.json
   def destroy
     @training.destroy
     respond_to do |format|
@@ -62,13 +48,12 @@ class TrainingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_training
-      @training = Training.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def training_params
-      params.require(:training).permit(:name, :cover, :description, excercises_attributes: [:name, :reps, :sets, :id, :_destroy])
-    end
+  def set_training
+    @training = Training.find(params[:id])
+  end
+
+  def training_params
+    params.require(:training).permit(:name, :cover, :description, excercises_attributes: %i[name reps sets id _destroy])
+  end
 end

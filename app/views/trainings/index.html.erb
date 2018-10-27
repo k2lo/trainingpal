@@ -1,38 +1,36 @@
+<h1 class="my-4">Trainings
+  <small>Make it work!</small>
+  <%= link_to 'New Training', new_training_path, class: "btn btn-primary" %>
+</h1>
 
-      <h1 class="my-4">Trainings
-        <small>Make it work!</small>
-        <%= link_to 'New Training', new_training_path, class: "btn btn-primary" %>
-      </h1>
-
-      <% if notice.present? %>
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-  <strong><%= notice %></strong>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
+<% if notice.present? %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong><%= notice %></strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
 <% end %>
       
-      <% @trainings.each do |training| %>
-
-        <div class="row">
-          <div class="col-md-3">
-            <%= image_tag(training.cover.url, size: "200", alt: 'Cover', class: "img-fluid rounded mb-3 mb-md-0") if training.cover? %>
-          </div>
-          <div class="col-md-5">
-            <h3><%= training.name %></h3>
-            <h5>Excercises:</h5>
-            <% training.excercises.each do |excercise| %>
-              <li><%= excercise.name %> | Reps: <%= excercise.reps %> | Sets: <%= excercise.sets %></li>
-            <% end %>
-          </div>
-          <div class="col-md-4">
-            <%= link_to 'Edit', edit_training_path(training), class: "btn btn-success" %>
-            <%= link_to 'Destroy', training, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-          </div>
-          <div class="col-md-12">
-            <p><%= training.description %></p>
-          </div>
-        </div>
-        <hr>
+<% @trainings.each do |training| %>
+  <div class="row">
+    <div class="col-md-3">
+      <%= image_tag(training.cover.url, size: "200", alt: 'Cover', class: "img-fluid rounded mb-3 mb-md-0") if training.cover? %>
+    </div>
+    <div class="col-md-5">
+      <h3><%= training.name %></h3>
+      <h5>Excercises:</h5>
+      <% training.excercises.each do |excercise| %>
+        <li><%= excercise.name %> | Reps: <%= excercise.reps %> | Sets: <%= excercise.sets %></li>
       <% end %>
+    </div>
+    <div class="col-md-4">
+      <%= link_to 'Edit', edit_training_path(training), class: "btn btn-success" %>
+      <%= link_to 'Destroy', training, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+    </div>
+    <div class="col-md-12">
+      <p><%= training.description %></p>
+    </div>
+  </div>
+<hr>
+<% end %>
