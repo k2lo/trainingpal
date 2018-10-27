@@ -1,7 +1,7 @@
 <%= form_with(model: training, local: true) do |form| %>
   
   <%= errors_for(@training) %>
-  
+  <%= image_tag(@training.cover.url, size: "200", alt: 'Cover', class: "img-fluid rounded mb-3 mb-md-0") if @training.cover? %>
   <div class="form-group">
     <%= form.label :cover %>
     <%= form.file_field :cover, class: "form-control-file" %>

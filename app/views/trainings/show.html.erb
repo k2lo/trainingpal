@@ -15,5 +15,12 @@
   <%= @training.description %>
 </p>
 
+<p>
+  <strong>Excercises:</strong>
+	<% @training.excercises.each do |excercise| %>
+
+	<% end %>
+</p>
+
 <%= link_to 'Edit', edit_training_path(@training) %> |
 <%= link_to 'Back', trainings_path %>

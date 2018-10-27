@@ -1,1 +1,15 @@
 @import "bootstrap";
+
+body {
+  padding-top: 50px;
+}
+
+@media (min-width: 1000px) {
+  body {
+    padding-top: 50px;
+  }
+}
+
+.pagination {
+  margin-bottom: 15px;
+}

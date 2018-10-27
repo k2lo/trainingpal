@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-4">
 			<%= f.label :name %>
-			<%= f.select :name, Excercise.all.collect { |e| [ e.name, e.id ] }, {}, {class: "form-control"} %>
+			<%= f.select :name, Excercise.default_exercises, {}, {class: "form-control"} %>
 		</div>
 		<div class="col-md-2">
 			<%= f.label :reps %>
